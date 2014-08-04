@@ -33,7 +33,7 @@ class ViewController: UIViewController,UITableViewDataSource {
             if errorDescription {
                 //alert the user of an error
                 println(errorDescription)
-                //callback(questions: nil, errorDescription: "Hey sorry! try again next time")
+                //callback(questions: nil, errorDescription: "Hey sorry! try again next time"). We could use UIAlertController here also.
             }
             else {
                 //put it back on main thread
