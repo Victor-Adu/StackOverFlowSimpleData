@@ -57,8 +57,8 @@ class NetworkController {
                 if let httpResponse = response as? NSHTTPURLResponse {
                     switch httpResponse.statusCode {
                     case 200:
-                        self.parseSuccessfulResponse(data)
-                        
+                        var parsedQuestions = self.parseSuccessfulResponse(data)
+                        callback(questions: parsedQuestions, errorDescription: nil)
                     case 400:
                         println("not found")
                         callback(questions: nil, errorDescription: "Bad Parameters: Error in fetching data")
