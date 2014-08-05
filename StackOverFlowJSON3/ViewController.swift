@@ -30,7 +30,7 @@ class ViewController: UIViewController,UITableViewDataSource {
         
         networkController.fetchQuestionsForSearchTerm("Swift", callback: {(questions : [Question]?, errorDescription : String?) -> Void in
             
-            if errorDescription {
+            if errorDescription != nil {
                 //alert the user of an error
                 println(errorDescription)
                 //callback(questions: nil, errorDescription: "Hey sorry! try again next time"). We could use UIAlertController here also.
@@ -48,7 +48,7 @@ class ViewController: UIViewController,UITableViewDataSource {
     //MARK: UITableDatasource
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        if self.questions {
+        if self.questions != nil {
             return self.questions!.count }
         return 0
     }

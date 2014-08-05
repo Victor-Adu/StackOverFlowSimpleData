@@ -22,7 +22,7 @@ class NetworkController {
                 for item in items {
                     if let itemDictI = item as? NSDictionary {
                         let question = Question(itemDict: itemDictI)
-                        questions += question
+                        questions.append(question)
                     }
                 }
             }
@@ -47,7 +47,7 @@ class NetworkController {
         
         let task = session.dataTaskWithURL(url, completionHandler: { (data : NSData!,response : NSURLResponse!, error :  NSError!) -> Void in
             
-            if error {
+            if (error != nil) {
                 //checking for a general error
                 //execute callback, passing an error description and no questions
                 callback(questions: nil, errorDescription: "Hey sorry! try again next time")
